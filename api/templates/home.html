@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Mi API Flask{% endblock %}
+
+{% block content %}
+    {% if 'username' in session %}
+        <h3>Bienvenido {{ username }}</h3>
+    {% else %}
+        <h3>Bienvenido a mi API Flask</h3>
+    {% endif %}
+{% endblock %}

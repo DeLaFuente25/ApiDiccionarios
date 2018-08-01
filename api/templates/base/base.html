@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    {% include 'base/css_imports.html' %}
+</head>
+<body>
+    {% include 'base/navbar.html' %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <div class="card-body">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    {% include 'base/js_imports.html' %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Mi API Flask{% endblock %}
+
+{% block content %}
+    <h3>Crear usuario</h3>
+    <div class="alert alert-primary">
+        {% from "macros/_formhelpers.html" import render_field %}
+        <form class="form-group" method=post>
+            <dl>
+                {{ render_field(form.username, class="form-control") }}
+                {{ render_field(form.password, class="form-control") }}
+                {{ render_field(form.email, class="form-control") }}
+            </dl>
+            <p>
+                <button class="btn btn-success" type=submit>Crear</button>
+                <a class="btn btn-danger" href="{{ url_for('home') }}">Cancelar</a>
+            </p>
+        </form>
+    </div>
+{% endblock %}

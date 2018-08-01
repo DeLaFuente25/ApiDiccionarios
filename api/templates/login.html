@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Mi API Flask{% endblock %}
+
+{% block content %}
+    <h3>Bienvenido{% if session.get('username')%} {{ session.get('username') }}{% endif %}</h3>
+    <div class="alert alert-info">
+        {% from "macros/_formhelpers.html" import render_field %}
+        <form class="form-group" method=post>
+            <dl>
+                {{ render_field(form.username, class="form-control") }}
+                {{ render_field(form.password, class="form-control") }}
+            </dl>
+            <p>
+                <button class="btn btn-success" type=submit>Login</button>
+                <a class="btn btn-danger" href="{{ url_for('home') }}">Cancelar</a>
+            </p>
+        </form>
+    </div>
+    <a class="dropdown-item" href="{{ url_for('create_user') }}">Crear una cuenta</a>
+{% endblock %}
