@@ -1,1 +1,1 @@
-web: gunicorn NewApi.wsgi
+web: gunicorn AppDirectorios.wsgi
